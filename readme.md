@@ -1,6 +1,6 @@
 <div align="center">
 
-# Laravel Deploy and Migrate DB
+# Laravel Deploy with Migrate and Cache Config
 
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://kosrat.dev)
 
@@ -32,7 +32,7 @@ jobs:
             -   name: Install Packages
                 run: composer install --no-dev
             -   name: Deploy to Server
-                uses: kosratdev/laravel-deploy-migrate@laravel
+                uses: MJAISE/laravel-deploy-migration-cache@master
                 with:
                     user: user
                     host: host

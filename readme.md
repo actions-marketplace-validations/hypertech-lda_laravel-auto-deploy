@@ -32,7 +32,7 @@ jobs:
             -   name: Install Packages
                 run: composer install --no-dev
             -   name: Deploy to Server
-                uses: MJAISE/laravel-deploy-migration-cache@master
+                uses: MJAISE/laravel-deploy-migrate-cache@master
                 with:
                     user: user
                     host: host

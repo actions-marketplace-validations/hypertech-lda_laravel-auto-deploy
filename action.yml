@@ -1,7 +1,7 @@
-name: 'Laravel Deploy and Migrate DB'
+name: 'Laravel Deploy with Migrate and Cache Config'
 
-description: 'Deploy Laravel Application to Server via SSH by RSync and then run php artisan migrate.'
-author: 'Kosrat Ahmed'
+description: 'Deploy Laravel Application to Server via SSH by RSync and then run migrations and Cache Configurations.'
+author: 'MJA'
 branding:
     icon: 'send'
     color: 'green'

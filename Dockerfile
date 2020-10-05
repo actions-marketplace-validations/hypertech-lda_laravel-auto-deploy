@@ -1,6 +1,6 @@
 FROM alpine:3.11.3
 
-MAINTAINER Kosrat Ahmed <kosrat.d.ahmad@gmail.com>
+MAINTAINER MJA <mja.ise.1981@gmail.com>
 
 RUN apk update \
 	&& apk upgrade \
@@ -14,3 +14,4 @@ WORKDIR /workspace
 ENTRYPOINT ["/bin/sh", "/script/entrypoint.sh"]
 
 CMD ["deploy"]
+

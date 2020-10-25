@@ -1,4 +1,4 @@
-FROM alpine:3.11.3
+FROM alpine:latest
 
 MAINTAINER MJA <mja.ise.1981@gmail.com>
 

@@ -27,7 +27,7 @@ then
 	ssh-keyscan -p $SSH_PORT -H "$SSH_HOST" >> /root/.ssh/known_hosts
 fi
 
-rsync --progress -azh \
+rsync --progress -avzh \
 	--exclude='.git/' \
 	--exclude='.git*' \
 	--exclude='.editorconfig' \

@@ -2,14 +2,17 @@
 
 # Laravel Deploy Action
 
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://kosrat.dev)
-
 </div>
+
+This project is fork from  [MJAISE/laravel-deploy-migrate-cache](https://github.com/MJAISE/laravel-deploy-migrate-cache) with some change:
+
+- [*] Support Custom Artisan Commands;
+- [*] remove `global require hirak/prestissimo` when using Composer 2.x;
+- [*] remove `php artisan modecach:clear` from default artisan commands;
 
 ## Default Artisan Commands
 ```
 php artisan migrate 
-php artisan modelcach:clear 
 php artisan cache:clear 
 php artisan route:cache
 php artisan config:cache
@@ -52,7 +55,7 @@ jobs:
                     port: port
                     path: path
                     owner: owner
-                    commands: "# Default commands"
+                    commands: "# Customer commands"
                 env:
                     DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
 ```

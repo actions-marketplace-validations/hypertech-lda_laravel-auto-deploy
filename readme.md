@@ -1,6 +1,8 @@
 <div align="center">
 
-# Laravel Deploy Action
+# Laravel Deploy X
+
+Deploy Laravel Application to Server via SSH by RSync
 
 </div>
 

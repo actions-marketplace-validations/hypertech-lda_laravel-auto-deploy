@@ -6,6 +6,7 @@ SSH_HOST=$2
 SSH_PORT=$3
 PATH_SOURCE=$4
 OWNER=$5
+COMMANDS=$6
 
 mkdir -p /root/.ssh
 ssh-keyscan -H "$SSH_HOST" >> /root/.ssh/known_hosts
@@ -23,7 +24,7 @@ fi
 
 if [ ! -z "$SSH_PORT" ];
 then
-        printf "Host %b\n\tPort %b\n" "$SSH_HOST" "$SSH_PORT" > /root/.ssh/config
+  printf "Host %b\n\tPort %b\n" "$SSH_HOST" "$SSH_PORT" > /root/.ssh/config
 	ssh-keyscan -p $SSH_PORT -H "$SSH_HOST" >> /root/.ssh/known_hosts
 fi
 
@@ -49,6 +50,11 @@ then
 	ssh -i /root/.ssh/id_rsa -t $SSH_USER@$SSH_HOST "sudo chmod 777 -R $PATH_SOURCE/storage"
 	ssh -i /root/.ssh/id_rsa -t $SSH_USER@$SSH_HOST "sudo chmod 777 -R $PATH_SOURCE/public"
 	ssh -i /root/.ssh/id_rsa -t $SSH_USER@$SSH_HOST "cd $PATH_SOURCE && php artisan migrate && php artisan modelcach:clear && php artisan cache:clear && php artisan route:cache && php artisan config:cache"
+
+	if [ ! -z "$COMMANDS" ];
+	then
+		ssh -i /root/.ssh/id_rsa -t $SSH_USER@$SSH_HOST "cd $PATH_SOURCE && $COMMANDS"
+	fi
 
 	echo $'\n' "------ CONGRATS! DEPLOY SUCCESSFUL!!! ---------" $'\n'
 	exit 0

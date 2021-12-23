@@ -1,6 +1,6 @@
-name: 'Laravel Deploy with Migrate and Cache Config'
+name: 'Laravel Deploy'
 
-description: 'Deploy Laravel Application to Server via SSH by RSync and then run migrations and Cache Configurations.'
+description: 'Deploy Laravel Application to Server via SSH by RSync'
 author: 'MJA'
 branding:
     icon: 'send'
@@ -22,7 +22,9 @@ inputs:
     owner: 
         description: 'Deploy owner'
         required: true
-
+    commands: 
+        description: 'Command to run after default artisan commands'
+        required: false
 runs:
     using: 'docker'
     image: 'Dockerfile'
@@ -32,3 +34,4 @@ runs:
         -   ${{ inputs.port }}
         -   ${{ inputs.path }}
         -   ${{ inputs.owner }}
+        -   ${{ inputs.commands }}

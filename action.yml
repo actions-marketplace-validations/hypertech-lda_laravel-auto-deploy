@@ -1,4 +1,4 @@
-name: 'Laravel Auto Deploye'
+name: 'Laravel Auto Deploy'
 
 description: 'Deploy Laravel Application to Server via SSH by RSync'
 author: 'karson'

@@ -8,7 +8,7 @@ Deploy Laravel Application to Server via SSH by RSync
 
 This project is fork from  [Charliex2/laravel-deploy-x](https://github.com/charliex2/laravel-deploy-x) with some change:
 
-- [] Fix rsync command;
+- [x] Fix rsync command;
 
 
 ## Default Artisan Commands

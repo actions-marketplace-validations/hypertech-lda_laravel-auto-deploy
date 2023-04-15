@@ -1,7 +1,7 @@
-name: 'Laravel Deploy X'
+name: 'Laravel Auto Deploye'
 
 description: 'Deploy Laravel Application to Server via SSH by RSync'
-author: 'MJA'
+author: 'karson'
 branding:
     icon: 'send'
     color: 'green'

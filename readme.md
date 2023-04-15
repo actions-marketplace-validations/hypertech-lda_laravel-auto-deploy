@@ -29,34 +29,48 @@ All commands above are executed in the default order.
 .github/workflows/deploy.yml
 
 ```
-name: Build and Deploy
+name: Deploy to production
 on:
-    push:
-        branches:
-            -   master
+  push:
+    branches: [ "develop" ]
 
 jobs:
-    build:
-        name: Build and Deploy
-        runs-on: ubuntu-latest
-        steps:
-            -   name: Checkout Repository
-                uses: actions/checkout@master
-            -   name: Setup Enviroment
-                uses: shivammathur/setup-php@v2
-                with:
-                    php-version: '7.4'
-            -   name: Install Packages
-                run: composer install --no-dev
-            -   name: Deploy to Server
-                uses: hypertech-lda/laravel-auto-deploy@master
-                with:
-                    user: user
-                    host: host
-                    port: port
-                    path: path
-                    owner: owner
-                    commands: "# Customer commands"
-                env:
-                    DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+  build:
+    name: Buid & Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@master
+      - name: Setup Environment
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+      - name: Install Composer Packages
+        run: composer install --no-dev
+      - name: Setup Node.js
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '16'
+          check-latest: true
+      - name: Install NPM dependencies
+
+        run: npm install
+
+      - name: Compile assets for production
+
+        run: npm run production
+
+      - name: Deploy To production
+        uses: hypertech-lda/laravel-auto-deploy@1.1
+        with:
+          user: ${{ secrets.SERVER_USER }}
+          host: ${{ secrets.SERVER_HOST }}
+          path: ${{ secrets.SERVER_PATH }}
+          owner: www
+          commands: "# Customer commands"
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+
+
+
 ```

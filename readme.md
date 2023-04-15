@@ -49,7 +49,7 @@ jobs:
             -   name: Install Packages
                 run: composer install --no-dev
             -   name: Deploy to Server
-                uses: charliex2/laravel-action@master
+                uses: hypertech-lda/laravel-auto-deploy@master
                 with:
                     user: user
                     host: host

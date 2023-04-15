@@ -1,16 +1,15 @@
 <div align="center">
 
-# Laravel Deploy X
+# Laravel Auto Deploy
 
 Deploy Laravel Application to Server via SSH by RSync
 
 </div>
 
-This project is fork from  [MJAISE/laravel-deploy-migrate-cache](https://github.com/MJAISE/laravel-deploy-migrate-cache) with some change:
+This project is fork from  [Charliex2/laravel-deploy-x](https://github.com/charliex2/laravel-deploy-x) with some change:
 
-- [*] Support Custom Artisan Commands;
-- [*] remove `global require hirak/prestissimo` when using Composer 2.x;
-- [*] remove `php artisan modecach:clear` from default artisan commands;
+- [] Fix rsync command;
+
 
 ## Default Artisan Commands
 ```
